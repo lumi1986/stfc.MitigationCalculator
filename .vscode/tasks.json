@@ -68,6 +68,7 @@
 			}
 		},
 		{
+			"label": "launch host",
 			"type": "func",
 			"dependsOn": "build (functions)",
 			"options": {
