@@ -4,8 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using AzureFunctions.Extensions.Swashbuckle;
 using Microsoft.OpenApi;
 using AzureFunctions.Extensions.Swashbuckle.Settings;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Reflection;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
@@ -14,7 +12,6 @@ var host = new HostBuilder()
         services.ConfigureFunctionsApplicationInsights();
         services.AddSwashBuckle(opts =>
         {
-            opts.AddNewtonsoftSupport = true;
             opts.RoutePrefix = "api";
             opts.SpecVersion = OpenApiSpecVersion.OpenApi3_0;
             opts.AddCodeParameter = true;
@@ -30,6 +27,7 @@ var host = new HostBuilder()
             };
             opts.Title = "Mitigation calculator";
         });
+        
     })
     .Build();
 
