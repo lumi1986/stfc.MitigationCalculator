@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using AzureFunctions.Extensions.Swashbuckle;
 using Microsoft.OpenApi;
 using AzureFunctions.Extensions.Swashbuckle.Settings;
+using stfc.MitigationCalculator.Application;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
@@ -27,6 +28,7 @@ var host = new HostBuilder()
             };
             opts.Title = "Mitigation calculator";
         });
+        services.AddApplicationLayerServices();
         
     })
     .Build();
