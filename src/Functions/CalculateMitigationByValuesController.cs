@@ -9,12 +9,12 @@ using stfc.MitigationCalculator.Common.Requests;
 
 namespace Functions
 {
-    public class CalculateByValuesController
+    public class CalculateMitigationByValuesController
     {
-        private readonly ILogger<CalculateByValuesController> _logger;
+        private readonly ILogger<CalculateMitigationByValuesController> _logger;
         private readonly IMediator _mediator;
 
-        public CalculateByValuesController(ILogger<CalculateByValuesController> logger, IMediator mediator)
+        public CalculateMitigationByValuesController(ILogger<CalculateMitigationByValuesController> logger, IMediator mediator)
         {
             _logger = logger;
             _mediator = mediator;
@@ -23,9 +23,9 @@ namespace Functions
         [Function("CalculateByValues")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post")]
-            [RequestBodyType(typeof(MitigationByValueRequest), "product request")]HttpRequest httpRequest)
+            [RequestBodyType(typeof(MitigationByValues), "product request")]HttpRequest httpRequest)
         {   
-            var request = await httpRequest.ReadFromJsonAsync<MitigationByValueRequest>();
+            var request = await httpRequest.ReadFromJsonAsync<MitigationByValues>();
             
             var result = await _mediator.Send(new CalculateByValueRequest(request));
             
