@@ -23,9 +23,9 @@ namespace Functions
         [Function("CalculateByValues")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post")]
-            [RequestBodyType(typeof(MitigationByValueRequest), "product request")]HttpRequest httpRequest)
+            [RequestBodyType(typeof(MitigationByValues), "product request")]HttpRequest httpRequest)
         {   
-            var request = await httpRequest.ReadFromJsonAsync<MitigationByValueRequest>();
+            var request = await httpRequest.ReadFromJsonAsync<MitigationByValues>();
             
             var result = await _mediator.Send(new CalculateByValueRequest(request));
             

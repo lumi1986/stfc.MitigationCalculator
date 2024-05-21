@@ -5,10 +5,10 @@ namespace stfc.MitigationCalculator.Common.Requests;
 
 public class CalculateByValueRequest : IRequest<Mitigation>
 {
-    public CalculateByValueRequest(MitigationByValueRequest payload)
+    public CalculateByValueRequest(MitigationByValues payload)
     {
         Payload = payload;
     }
 
-    public MitigationByValueRequest Payload { get; }
+    public MitigationByValues Payload { get; }
 }
