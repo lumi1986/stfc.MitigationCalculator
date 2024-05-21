@@ -9,12 +9,12 @@ using stfc.MitigationCalculator.Common.Requests;
 
 namespace Functions
 {
-    public class CalculateByValuesController
+    public class CalculateMitigationByValuesController
     {
-        private readonly ILogger<CalculateByValuesController> _logger;
+        private readonly ILogger<CalculateMitigationByValuesController> _logger;
         private readonly IMediator _mediator;
 
-        public CalculateByValuesController(ILogger<CalculateByValuesController> logger, IMediator mediator)
+        public CalculateMitigationByValuesController(ILogger<CalculateMitigationByValuesController> logger, IMediator mediator)
         {
             _logger = logger;
             _mediator = mediator;

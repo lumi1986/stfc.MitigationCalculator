@@ -6,10 +6,10 @@ using stfc.MitigationCalculator.Common.Requests;
 
 namespace stfc.MitigationCalculator.Application.Handlers;
 
-internal class CalculateByMitigationAndAttackerValues : CalculateBaseHandler, IRequestHandler<CalculateDefenderOfficerValuesByValuesAndMitigationRequest, OfficerValues>
+internal class CalculateDefenderOfficerValuesByValuesAndMitigationHandler : CalculateBaseHandler, IRequestHandler<CalculateDefenderOfficerValuesByValuesAndMitigationRequest, OfficerValues>
 {
     
-    public CalculateByMitigationAndAttackerValues(RatioLogisticFunctionService ratioLogisticFunctionService, DefenderTypeWeightFactorsService defenderTypeWeightFactorsService)
+    public CalculateDefenderOfficerValuesByValuesAndMitigationHandler(RatioLogisticFunctionService ratioLogisticFunctionService, DefenderTypeWeightFactorsService defenderTypeWeightFactorsService)
         : base (ratioLogisticFunctionService, defenderTypeWeightFactorsService)
     {
     }

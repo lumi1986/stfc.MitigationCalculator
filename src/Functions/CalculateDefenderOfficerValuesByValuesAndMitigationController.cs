@@ -11,10 +11,10 @@ namespace Functions
 {
     public class CalculateDefenderOfficerValuesByValuesAndMitigationController
     {
-        private readonly ILogger<CalculateByValuesController> _logger;
+        private readonly ILogger<CalculateDefenderOfficerValuesByValuesAndMitigationController> _logger;
         private readonly IMediator _mediator;
 
-        public CalculateDefenderOfficerValuesByValuesAndMitigationController(ILogger<CalculateByValuesController> logger, IMediator mediator)
+        public CalculateDefenderOfficerValuesByValuesAndMitigationController(ILogger<CalculateDefenderOfficerValuesByValuesAndMitigationController> logger, IMediator mediator)
         {
             _logger = logger;
             _mediator = mediator;

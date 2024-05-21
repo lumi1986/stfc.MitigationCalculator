@@ -7,8 +7,8 @@ public class CalculateDefenderOfficerValuesByValuesAndMitigationRequest : IReque
 {
     public CalculateDefenderOfficerValuesByValuesAndMitigationRequest(DefenderOfficerValuesByValuesAndMitigation payload)
     {
-        Payload = payload;
+        Payload = payload ?? throw new InvalidOperationException();
     }
 
-    public DefenderOfficerValuesByValuesAndMitigation Payload { get; }
+    public DefenderOfficerValuesByValuesAndMitigation Payload { get; } = null!;
 }
