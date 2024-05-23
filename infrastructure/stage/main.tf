@@ -16,7 +16,7 @@ resource "azurerm_service_plan" "function_app" {
   resource_group_name = azurerm_resource_group.mitigation_calculator.name
   location            = azurerm_resource_group.mitigation_calculator.location
   os_type             = "Windows"
-  sku_name            = "Y1"
+  sku_name            = "F1"
 }
 
 resource "azurerm_windows_function_app" "function_app" {
