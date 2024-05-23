@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "mitigation_calculator" {
 }
 
 resource "azurerm_storage_account" "function_app" {
-  name                     = "mitigation_calculator_function_app_storage_account"
+  name                     = "mitcalcfunctionapp"
   resource_group_name      = azurerm_resource_group.mitigation_calculator.name
   location                 = azurerm_resource_group.mitigation_calculator.location
   account_tier             = "Standard"
