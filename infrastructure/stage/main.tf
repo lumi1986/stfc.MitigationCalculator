@@ -1,7 +1,11 @@
+data "azurerm_resource_group" "default" {
+  name = var.resource_group_name
+}
+
 resource "azurerm_resource_group" "mitigation_calculator" {
   name     = "mitigation_calculator_${var.environment_short_name}"
   count    = var.is_vritual ? 0 : 1
-  location = "Switzerland North"
+  location = data.azurerm_resource_group.default.location
 }
 
 resource "azurerm_container_app" "mitigation_calculator" {
