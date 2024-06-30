@@ -4,3 +4,4 @@ variable "subscription_id" {}
 variable "tenant_id" {}
 variable "resource_group_id" {}
 variable "container_app_environment_id" {}
+variable "is_vritual" {}
