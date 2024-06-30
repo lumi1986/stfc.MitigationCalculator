@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "mitigation_calculator" {
 }
 
 resource "azurerm_container_app" "mitigation_calculator" {
-  name                         = "MitigationCalculator-Dev"
+  name                         = "mitigationcalculator-${var.environment_short_name}"
   count                        = var.is_vritual ? 0 : 1
   container_app_environment_id = var.container_app_environment_id
   resource_group_name          = azurerm_resource_group.mitigation_calculator[0].id
