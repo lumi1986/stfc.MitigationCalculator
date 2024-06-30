@@ -27,5 +27,14 @@ app.MapPost("api/calculatebyvalues", async (MitigationByValues request, [FromSer
 .WithName("CalculateByValues")
 .WithOpenApi();
 
+app.MapPost("api/calculatedefenderofficervaluesbyvaluesandmitigation", async (DefenderOfficerValuesByValuesAndMitigation request, [FromServices] IMediator mediator) => 
+{
+    var result = await mediator.Send(new CalculateDefenderOfficerValuesByValuesAndMitigationRequest(request));
+    return Results.Ok(result);
+})
+.WithName("CalculateDefenderOfficerValuesByValuesAndMitigation")
+.WithOpenApi();
+
+
 app.Run();
 
