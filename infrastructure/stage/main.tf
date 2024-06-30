@@ -3,30 +3,18 @@ resource "azurerm_resource_group" "mitigation_calculator" {
   location = "Switzerland North"
 }
 
-resource "azurerm_storage_account" "function_app" {
-  name                     = "mitcalcfunctionapp"
-  resource_group_name      = azurerm_resource_group.mitigation_calculator.name
-  location                 = azurerm_resource_group.mitigation_calculator.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
+resource "azurerm_container_app" "example" {
+  name                         = "example-app"
+  container_app_environment_id = var.container_app_environment_id
+  resource_group_name          = azurerm_resource_group.mitigation_calculator.name
+  revision_mode                = "Single"
 
-resource "azurerm_service_plan" "function_app" {
-  name                = "mitigation_calculator_function_app_service_plan"
-  resource_group_name = azurerm_resource_group.mitigation_calculator.name
-  location            = azurerm_resource_group.mitigation_calculator.location
-  os_type             = "Windows"
-  sku_name            = "F1"
-}
-
-resource "azurerm_windows_function_app" "function_app" {
-  name                = "example-windows-function-app"
-  resource_group_name = azurerm_resource_group.mitigation_calculator.name
-  location            = azurerm_resource_group.mitigation_calculator.location
-
-  storage_account_name       = azurerm_storage_account.function_app.name
-  storage_account_access_key = azurerm_storage_account.function_app.primary_access_key
-  service_plan_id            = azurerm_service_plan.function_app.id
-
-  site_config {}
+  template {
+    container {
+      name   = "mitigationcalculator"
+      image  = "ghcr.io/lumi1986/stfc.mitigationcalculator:main"
+      cpu    = 0.25
+      memory = "0.5Gi"
+    }
+  }
 }
