@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "mitigation_calculator" {
-  name     = "mitigation_calculator"
+  name     = "mitigation_calculator_${var.environment_short_name}"
   count    = var.is_vritual ? 0 : 1
   location = "Switzerland North"
 }

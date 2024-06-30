@@ -3,5 +3,7 @@ variable "client_secret" {}
 variable "subscription_id" {}
 variable "tenant_id" {}
 variable "resource_group_id" {}
+variable "resource_group_name" {}
 variable "container_app_environment_id" {}
 variable "is_vritual" {}
+variable "environment_short_name" {}
