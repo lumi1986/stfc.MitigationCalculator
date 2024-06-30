@@ -2,10 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach to .NET Functions",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:azureFunctions.pickProcess}"
+        "name": "Launch",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/src/Service/bin/Debug/net8.0/Service.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/src/Service",
+        "stopAtEntry": false,
+        "console": "internalConsole"
         }
     ]
-}
+  }
